@@ -62,12 +62,13 @@ def utworz_watek_nadawacza(sock):
     return nadawacz_thr
 
 
-def sluchaj_wejscie_z_gniazda(sock):  # thread
+def sluchaj_wejscie_z_gniazda(sock): # thread
     parser = CompParser()
     robot = Robot()
     global dzialaj
     while dzialaj:
         odebrane_dane = sock.otrzymaj_dane(ile=20)
+        print odebrane_dane
         x, y, przyciskPSP2Stan = parser.parsuj_klawisze(dane=odebrane_dane)
         robot.reaguj(int(x), int(y), przyciskPSP2Stan)
         # krotszy niz na psp ; 50razy/sek cos odczytam; ale w pesymistycznym
@@ -75,7 +76,7 @@ def sluchaj_wejscie_z_gniazda(sock):  # thread
         time.sleep(0.002)
 
 
-def nadawaj_do_gniazda(sock):  # thread
+def nadawaj_do_gniazda(sock): # thread
     parser = CompParser()
     global dzialaj
     while dzialaj:

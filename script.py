@@ -177,17 +177,26 @@ def pobierz_stan_przyciskow():
     rtn += parser.uzupelnij_dane_do_dlugosci(pad.analogY, dlugosc=4)
     stan_przyciskow = [pad.up, pad.right, pad.down, pad.left, pad.triangle,
                        pad.circle, pad.cross, pad.square, pad.l, pad.r, pad.start, pad.select]
-    # for stan in stan_przyciskow:
-    #	rtn += to_string(stan)
-    #	#rtn += lambda x
+    for stan in stan_przyciskow:
+        rtn += to_string(stan)
 
-    result_list = map(lambda stan: '1' if stan else '0', stan_przyciskow)
-    return ''.join(result_list)
+    return rtn
+
+    #result_list = map(lambda stan: '1' if stan else '0', stan_przyciskow) #map zwroci mi liste czy generator? bo to nie dziala
+    #return ''.join(result_list)
+
+    #mozna tez tak pomyslec:
     # if pad.cross:
     #	struktura.cross = True #bool zajmuje 1 bit, jak to odczytywac
     # trzeba dokladnie znac wage struktury i tyle bajtow czytac w serwerze
     # socket wysyla tylko string, jak wyslac strukture... ; i czy warto, czy
     # to wlasciwe rozwiazanie
+
+def to_string(stan):
+    if stan == True:
+        return '1'
+    else:
+        return '0'
 
 if __name__ == '__main__':
     try:
