@@ -23,6 +23,8 @@ pspos.setclocks(333, 166)
 dzialaj = True
 ##########################################################################
 # nie moj kod, do przeanalizowania
+# !!!!!!!!!!!!!!!! to prawdopodobnie nie jest potrzebne bo stawia serwer HTTP 192.168.1.13:80 w przegladarce zobacz
+# dlatego aby polaczyc sie z ruterem wystarczy connectToAPCTL(1, cb)
 
 
 class MSHandler(BaseHTTPRequestHandler):
